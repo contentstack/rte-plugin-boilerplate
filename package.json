@@ -1,7 +1,7 @@
 {
-    "name": "contentstack-rte-plugin-boilerplate",
+    "name": "@contentstack/rte-plugin-boilerplate",
     "version": "1.0.0",
-    "description": "An initial boilerplate ",
+    "description": "An initial boilerplate for creating a new RTE plugin",
     "entry": "plugin",
     "output": "index.js",
     "main": "dist/index.js",
@@ -11,9 +11,13 @@
     ],
     "scripts": {
         "build": "webpack",
-        "test": "echo \"Error: no test specified\" && exit 1",
         "start": "webpack-dev-server --mode development",
-        "dev": "webpack --watch --mode development"
+        "dev": "webpack --watch --mode development",
+        "prepare": "npm run build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/contentstack/rte-plugin-boilerplate.git"
     },
     "devDependencies": {
         "@types/node": "^10.17.5",
@@ -46,7 +50,11 @@
         "react": "^16.11.0",
         "react-dom": "^16.13.1"
     },
-    "keywords": [],
-    "author": "Ravi Lamkoti, Deepak Kharah",
+    "keywords": [
+        "rte",
+        "plugin",
+        "boilerplate"
+    ],
+    "author": "Contentstack",
     "license": "MIT"
 }
