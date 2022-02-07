@@ -1,6 +1,15 @@
 # Contentstack JSON RTE Plugins SDK API Reference
 
 This document describes the API requests that a JSON RTE plugin can use to communicate with Contentstack.
+ 
++ [Prerequisites](#prerequisites)
++ [Inclusion in your project](#inclusion-in-your-project)
++ [Classes](#classes)
++ [Editor Events](#editor-events)
++ [Dropdown plugin](#dropdown-plugin)
+
+<span id='#prerequisites'/>
+
 ## Prerequisites
 
 
@@ -52,11 +61,14 @@ For example,
 
 
 ```json
-{ text: "I am Bold", bold: true } 
+{ 
+  text: "I am Bold", 
+  bold: true 
+} 
 ```
 
 
-Then, bold is the mark for text "I am Bold"
+Here, bold is the mark or the formatting to be applied to the "I am Bold" text.
 
 
 ![Block Leaf Image](./images/BlockLeaf.png "Block Leaf")
@@ -91,6 +103,7 @@ In JSON Rich Text Editor, a Path has the following structure:
 Number[]
 ```
 
+For example, path for doc is [0], paragraph is [0,0] from the above given example.
 
 
 ### Point
@@ -101,11 +114,11 @@ Point objects refer to a specific location of text in the leaf node. Its path re
 ![Point](./images/Point.png "Point")
 
 
-In JSON Rich Text Editor, a Point has the following structure:
+In the JSON Rich Text Editor, a Point has the following structure:
 
 
 ```javascript
-{ 
+Point = { 
     path: Path, 
     offset: Number 
 }
@@ -115,7 +128,7 @@ In JSON Rich Text Editor, a Point has the following structure:
 
 ### Range
 
-A Range is a set of `start (anchor)` and `end (focus)` Points specifying a range in a JSON document.
+A Range is a set of two points called `anchor (start)` and `focus (end)` specifying start and end of range in a JSON document.
 
 
 ![Range](./images/Range.png "Range")
@@ -125,7 +138,7 @@ The structure of a Range is as follows:
 
 
 ```javascript
-{ 
+Range = { 
     anchor: Point, 
     focus: Point 
 }
@@ -137,20 +150,17 @@ The structure of a Range is as follows:
 
 Location is one of the ways to specify the location in a JSON document.  It could be a Path, Point, or Range.
 
+<span id='#prerequisites'/>
 
 ## Inclusion in your project
 
 For JSON RTE Plugins, you will need to install `@contentstack/app-sdk` in your react project. You will also need to clone the [boilerplate](https://github.com/Deepak-Kharah/contentstack-rte-plugin-boilerplate) GitHub repository that contains the template needed to create a JSON RTE plugin.
 
-For other extensions you will need to include the contentstack-extension-sdk library in your HTML5 app:
-
-```html
-<script src="https://unpkg.com/@contentstack/app-sdk@1.0.0/dist/index.js"></script>
-```
+<span id='#classes'/>
 
 ## Classes
 
-### `RTEPlugin(plugin_id, callback)`
+### `RTEPlugin(plugin_id, configCallback)`
 
 This method allows you to create a JSON RTE plugin instance for the JSON Rich Text Editor field.
 
@@ -179,9 +189,9 @@ The following table contains possible properties of IConfig:
 | `elementType` | (‘inline’ \| ‘void’ \| ‘block’)[]  | Render type                               |
 | `render`      | ReactNode | Component to be rendered within the editor when corresponding plugin_uid appears in json.   |
 
-<span id="rte">**rte**</span> : An instance which has all essential functions to interact with JSON RTE.
+<span id="rte">**rte**</span> : An instance which has all the essential functions required to interact with the JSON RTE.
 
-Following are a list of helpful functions and properties for a JSON RTE instance.
+Following are a list of helpful properties and methods of the JSON RTE instance.
 
 ### Properties:
 
@@ -199,12 +209,12 @@ Following are a list of helpful functions and properties for a JSON RTE instance
 
 ### `rte.getConfig: () => Object`
 
-Provides configuration which are defined while creating the plugin or while selecting a plugin in the content type builder page.
+Provides configuration which is defined while creating the plugin or while selecting a plugin in the content type builder page.
 
 For example, if your plugin requires API Key or any other config parameters then, you can specify these configurations while creating a new plugin or you can specify field specific configurations from the content type builder page while selecting the plugin. These configurations can be accessed through the ```getConfig() ```method.
 
 
-### Methods:
+### RTE Methods:
 These methods are part of the RTE instance and can be accessed as rte.methodName().
 
 | **Method**       | **Description**                          | **Type**                                            |
@@ -274,6 +284,8 @@ interface NodeOptions {
 
 ## Plugin:
 
+<span id='#editor-events'/>
+
 ## Editor Events
 
 ### `Plugin.on: (event_type, callback) => void`
@@ -288,6 +300,8 @@ interface NodeOptions {
 | `insertText`     | Inserts text in the current selection      | ({rte: RTE, preventDefault: Function, ...args:[string]}) => void                                          |
 | `change`         | When there is a change in the editor       | ({rte: RTE, , preventDefault: Function}) => void                                                          |
 | `insertBreak`    | When the enter key is pressed              | ({rte: RTE, preventDefault: Function}) => void                                                            |
+
+<span id='#dropdown-plugin'/>
 
 ## Dropdown plugin
 
