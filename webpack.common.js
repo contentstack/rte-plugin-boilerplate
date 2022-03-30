@@ -5,6 +5,8 @@ module.exports = {
     entry: path.resolve(__dirname, "src", pkg.entry + ".tsx"),
     externals: {
         react: "react",
+        'react-dom': 'react-dom',
+        '@contentstack/venus-components': '@contentstack/venus-components'
     },
     mode: "production",
     output: {
