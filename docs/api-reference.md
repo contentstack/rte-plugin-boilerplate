@@ -62,8 +62,8 @@ For example,
 
 ```json
 { 
-  text: "I am Bold", 
-  bold: true 
+  "text": "I am Bold", 
+  "bold": true 
 } 
 ```
 
@@ -207,7 +207,7 @@ Following are a list of helpful properties and methods of the JSON RTE instance.
 | `title`          | Title of the field              | string                     |
 | `uid`            | Unique ID for the field         | string                     |
 
-### `rte.getConfig: () => Object`
+### `rte.getConfig: () => Promise<{[key: string]: any;}>`
 
 Provides configuration which is defined while creating the plugin or while selecting a plugin in the content type builder page.
 
@@ -262,7 +262,7 @@ These methods are part of the RTE instance and can be accessed as rte.methodName
 Functions which involve transformation or change have an `options` parameter which includes options specific to transform and general `NodeOptions` to specify which Nodes in the document the transform function is applied to.
 
 
-```json
+```ts
 interface NodeOptions {
   at?: Location
   match?: (node: Node, path: Location) => boolean
@@ -289,17 +289,22 @@ interface NodeOptions {
 ## Editor Events
 
 ### `Plugin.on: (event_type, callback) => void`
+```ts
+interface RTEEvent extends Event {
+  rte: RTE
+}
+```
 
 | **event_type**   | **Description**                            | **Callback Arguments**                                                                                    |
 | ---------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------- |
-| `keydown`        | When keydown is performed                  | ({event: KeyboardEvent, rte: RTE}) => void                                                                |
-| `exec`           | When a button is clicked or triggered      | (rte: RTE) => void                                                                                        |
-| `deleteBackward` | When backward deletion occurs              | ({rte: RTE, preventDefault: Function, ...args:[unit:"character" \| "word" \| "line" \| "block"]}) => void |
-| `deleteForward`  | When forward deletion occurs               | ({rte: RTE, preventDefault: Function, ...args:[unit:"character" \| "word" \| "line" \| "block"]}) => void |
-| `normalize`      | It is used to normalize any dirty ( unwanted structure ) objects in the editor | ({rte: RTE, preventDefault: Function, ...args:[[node:Node, path:Path]]}) => void                          |
-| `insertText`     | Inserts text in the current selection      | ({rte: RTE, preventDefault: Function, ...args:[string]}) => void                                          |
-| `change`         | When there is a change in the editor       | ({rte: RTE, , preventDefault: Function}) => void                                                          |
-| `insertBreak`    | When the enter key is pressed              | ({rte: RTE, preventDefault: Function}) => void                                                            |
+| `keydown`        | When keydown is performed                  | (event: RTEEvent, rte: RTE) => void                                                                |
+| `exec`           | When a button is clicked or triggered      | (event: RTEEvent, rte: RTE) => void                                                                                        |
+| `deleteBackward` | When backward deletion occurs              | (event: RTEEvent, rte: RTE, { <div style="padding-left:2em">  unit:"character" \| "word" \| "line" \| "block"</div>}) => void |
+| `deleteForward`  | When forward deletion occurs               | (event: RTEEvent, rte: RTE, { <div style="padding-left:2em">  unit:"character" \| "word" \| "line" \| "block"</div>}) => void |
+| `normalize`      | It is used to normalize any dirty ( unwanted structure ) objects in the editor | (event: RTEEvent, rte: RTE, { <div style="padding-left:2em">node: Node, path: Path</div> }) => void                          |
+| `insertText`     | Inserts text in the current selection      | (event: RTEEvent, rte: RTE, {<div style="padding-left:2em">character: string</div>}) => void                                          |
+| `change`         | When there is a change in the editor       | (event: RTEEvent, rte: RTE) => void                                                          |
+| `insertBreak`    | When the enter key is pressed              | (event: RTEEvent, rte: RTE) => void                                                            |
 
 <span id='#dropdown-plugin'/>
 
