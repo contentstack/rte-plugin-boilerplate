@@ -1,0 +1,29 @@
+site_name: RTE Plugins Docs
+
+repo_url: https://github.com/contentstack/rte-plugin-boilerplate
+edit_uri: ""
+
+nav:
+  - Getting Started: 'index.md'
+  - Prerequisites: 'prerequisites.md'
+  - Create a Plugin: 'create_plugin.md'
+  - RTE Methods: 'methods.md'
+  - Editor Events: 'editor_events.md'
+  - Dropdown Plugin: 'dropdown.md'
+
+
+theme: 
+  name: material
+  favicon: img/favicon.ico
+  logo: img/favicon.ico
+  features:
+    - navigation.expand
+
+extra:
+  generator: false
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      linenums: true
+  - pymdownx.superfences 
