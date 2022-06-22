@@ -40,8 +40,9 @@ In the JSON Rich Text Editor, the JSON structure is represented as a **Node** wh
 The editor content that is inside a Node of type doc acts as a root for the content. Where a Block node is a JSON structure with a “children” key in it. Whereas a Leaf node will just have “text” which may include formatting properties (mark) like “bold”, “italic”, etc. 
 
 ----
+!!! note
 
-**Mark:** You'll see a mark used in below example which is nothing but a leaf property on how to render content.
+    **Mark:** You'll see a mark used in below example which is nothing but a leaf property on how to render content.
 
 For example,
 ```json

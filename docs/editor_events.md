@@ -1,18 +1,25 @@
 ### Registering Editor Events
 You can register editor events by using the `on` method available on the plugin instance.
 
-For Example:
+```ts
+Plugin.on(eventName, eventCallback) => void
+```
+
+
+!!! example
 ```ts hl_lines="5 6 7"
-const KeydownPlugin = RTE("keydown", () => {
+const KeydownPlugin = RTE('plugin-id', () => {
     return {};
 });
 
 KeydownPlugin.on('keydown', (event) => {
     console.log(event);
-})
+});
 ```
 
 ### Events
+!!! note
+    All Types used defined at bottom of the page.
 #### Keydown (`keydown`)
 ```ts
 keydown: (event: RTEEvent, rte: RTE) => void
@@ -93,6 +100,10 @@ insertBreak: (event: RTEEvent, rte: RTE) => void
 When the enter key is pressed on the editor, the `insertBreak` callback is triggered.
 
 ----
+#### Types
+
+[RTE](/methods/#rte-instance-rte)
+
 ```ts
 interface RTEEvent extends Event {
   rte: RTE

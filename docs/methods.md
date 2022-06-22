@@ -2,18 +2,22 @@
 ```ts
 RTEPlugin(plugin_id, configCallback: (rte: IRteParam) => IConfig) => IRtePlugin
 ```
+<span class='sm-text'>
+References: [IRteParam](#rte), [IConfig](#iconfig), [configCallback](#config-object) [IRtePlugin](#IRtePlugin)
+</span>
 
 This method allows you to create a JSON RTE plugin instance for the JSON Rich Text Editor field.
 
 **Returns** : Plugin Instance
 
-|**Parameter**| **Type**| **Description**|
+**Parameters**:
+
+|**Name**| **Type**| **Description**|
 |--------------|--------|-----------------|
 |`plugin_id`|string | Unique ID of the plugin|
-| `configCallback` | (rte: IRteParam) => IConfig | This function receives an [RTE instance](#rte) as argument and it expects you to return a [config object](#config-object) that includes details like title, icon, render, etc. |
+| [`configCallback`](#config-object) | (rte: IRteParam) => IConfig | This function receives an [RTE instance](#rte) as argument and it expects you to return a [config object](#config-object) that includes details like title, icon, render, etc. |
 
-For Example:
-
+!!! example
 ```ts
 const locations = await sdk["location"];
 const RTEPlugin = locations["RTEPlugin"]!;
@@ -27,14 +31,16 @@ const Plugin = RTEPlugin('plugin_uid', () => {
     }
 });
 ```
-
 <span id='config-object'></span>
-
 #### configCallback
 ```ts
 configCallback: (rte: IRteParam) => IConfig
 ```
+<span class='sm-text'>
+References: [IRteParam](#rte), [IConfig](#iconfig)
+</span>
 
+<span id='iconfig'></span>
 **IConfig** : This user defined object will have all the essential metadata for the plugin.
 
 The following table contains possible properties of IConfig: 
@@ -47,7 +53,7 @@ The following table contains possible properties of IConfig:
 | `elementType` | (‘inline’ \| ‘void’ \| ‘block’)[]  | Render type                               |
 | `render`      | ReactNode | Component to be rendered within the editor when corresponding plugin_uid appears in json.   |
 
-### RTE Instance (rte)
+### RTE Instance (rte: IRteParam)
 <span id="rte">**rte**</span> : An instance which has all the essential functions required to interact with the JSON RTE.
 
 Following are a list of helpful properties and methods of the JSON RTE instance.
@@ -93,7 +99,7 @@ These methods are part of the RTE instance and can be accessed as rte.methodName
 | `updateNode`       | Updates nodes based on provided options             | (type:string,attrs:Object, options: Option) => void </br>  Option: [NodeOptions](#node-options) |
 | `unsetNode`        | Converts a node to a normal paragraph based on provided options    | (options: Option) => void </br>  Option: [NodeOptions](#node-options)                        |
 | `insertNode`       | Inserts a node at a given location. Having ```select``` option true will select the node after insertion       | (node:Node, options?: Option) => void </br>  Option: [NodeOptions](#node-options)``` & { select?: boolean }```             |
-| `deleteNode`       | Deletes a node at a given location       | (options: Option) => void </br>  Option: ```{at?: Location, distance?: number, unit?: 'character' \| 'word' \| 'line' \| 'block'} ```                  |
+| `deleteNode`       | Deletes a node at a given location       | (options: Option) => void </br>  Option: ```{at?: Location, distance?: number, unit?: 'character' | 'word' | 'line' | 'block'} ```                  |
 | `wrapNode`         | Wraps node based on provided options with given node     | (node:Node, options: Option) => void </br>  Option: [NodeOptions](#node-options)              |
 | `unWrapNode`       | Unwraps node based on provided options  from the parent node      | (options: Option) => void </br>  Option: [NodeOptions](#node-options)                       |
 | `mergeNodes`       | Merges nodes based on provided options        | (options: Option) => void </br>  Option: [NodeOptions](#node-options)                        |
@@ -110,8 +116,8 @@ These methods are part of the RTE instance and can be accessed as rte.methodName
 | `isSelected`   | It is a React hook which returns ```true``` when the current node is selected.            | () => boolean                                     |
 | `isFocused`    | It is React hook which returns ```true``` when the current node is focused             | () => boolean                                     |
 | `getEnd`       | Retrieves the end location of the editor                  | () => Path                                        |
-| `before`       | Retrieves the prior location before current selection     | (location: Location, options: Option) => Location </br>  Option: ```{distance?: number, unit?: 'offset' \| 'character' \| 'word' \| 'line' \| 'block'}``` |
-| `after`        | Retrieves the subsequent location after current selection | (location: Location, options: Option) => Location </br>  Option: ```{distance?: number, unit?: 'offset' \| 'character' \| 'word' \| 'line' \| 'block'}```|
+| `before`       | Retrieves the prior location before current selection     | (location: Location, options: Option) => Location </br>  Option: ```{distance?: number, unit?: 'offset' | 'character' | 'word' | 'line' | 'block'}``` |
+| `after`        | Retrieves the subsequent location after current selection | (location: Location, options: Option) => Location </br>  Option: ```{distance?: number, unit?: 'offset' | 'character' | 'word' | 'line' | 'block'}```|
 | `isPointEqual` | Checks if two points are equal                            | (point1: Point, point2: Point) => boolean         |
 
 <span id='node-options' />
