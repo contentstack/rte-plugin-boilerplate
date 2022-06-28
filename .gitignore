@@ -32,3 +32,6 @@ dist/
 # Ignore all local history of files
 .history
 .ionide
+
+# docs
+rte-plugins/

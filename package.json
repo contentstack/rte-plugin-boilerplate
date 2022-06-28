@@ -12,7 +12,8 @@
     "scripts": {
         "build": "webpack --config webpack.prod.js",
         "start": "webpack serve --config webpack.dev.js",
-        "dev": "webpack --config webpack.dev.js"
+        "dev": "webpack --config webpack.dev.js",
+        "build-docs": "mkdocs build && cp -r ./site/ ./rte-plugins/api-reference"
     },
     "repository": {
         "type": "git",
