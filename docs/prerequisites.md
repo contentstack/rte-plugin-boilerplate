@@ -1,5 +1,5 @@
 ### Content
-* Basic understanding of JSON Rich Text Editor
+* Basic understanding of [JSON Rich Text Editor](https://www.contentstack.com/docs/developers/json-rich-text-editor/about-json-rich-text-editor/)
 * JSON structure and terminology associated with it
 
 
@@ -37,12 +37,12 @@ In the JSON Rich Text Editor, the JSON structure is represented as a **Node** wh
 1. Block Node
 2. Leaf Node
 
-The editor content that is inside a Node of type doc acts as a root for the content. Where a Block node is a JSON structure with a “children” key in it. Whereas a Leaf node will just have “text” which may include formatting properties (mark) like “bold”, “italic”, etc. 
+The editor content inside a Node of type doc acts as a root for the content, whereas a Block node is a JSON structure with a “children” key. At the same time, a Leaf node will have “text” which may include formatting properties (mark) like “bold”, “italic”, etc. 
 
 ----
 !!! note
 
-    **Mark:** You'll see a mark used in below example which is nothing but a leaf property on how to render content.
+    **Mark:** You'll see a mark used in below example, which is nothing but a leaf property on how to render content.
 
 For example,
 ```json
@@ -52,7 +52,7 @@ For example,
 } 
 ```
 
-Here, bold is the mark or the formatting to be applied to the "I am Bold" text.
+Here, bold is the mark or the formatting applied to the "I am Bold" text.
 
 ----
 
@@ -93,7 +93,7 @@ For example, path for doc is [0], paragraph is [0,0] from the above given exampl
 
 ### Point
 
-Point objects refer to a specific location of text in the leaf node. Its path refers to the location of the node in the tree, and its offset refers to distance into the node's string of text. 
+Point objects refer to a specific location of text in the leaf node. Its path refers to the node's location in the tree, and its offset refers to distance into the node's string of text. 
 
 
 ![Point](img/prerequisites/point.png "Point")
@@ -113,7 +113,7 @@ Point = {
 
 ### Range
 
-A Range is a set of two points called `anchor (start)` and `focus (end)` specifying start and end of range in a JSON document.
+A Range is a set of two points called `anchor (start)` and `focus (end)` specifying start and end of the range in a JSON document.
 
 
 ![Range](img/prerequisites/range.png "Range")

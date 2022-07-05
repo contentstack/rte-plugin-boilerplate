@@ -3,10 +3,10 @@
 ```ts
 Plugin.addPlugins(...Plugin) => void
 ```
-The addPlugins method can help you to group the plugins under a dropdown that share the same theme. Also, the addPlugins method takes a list of plugins as an input. 
+The `addPlugins` method can help you group the plugins under a dropdown that share the same theme. Also, this method takes a list of plugins as input. 
 
 
-For example, the code for addPlugins is as follows:
+For example, the code for `addPlugins` is as follows:
 !!! example
     
 ```ts hl_lines="11"

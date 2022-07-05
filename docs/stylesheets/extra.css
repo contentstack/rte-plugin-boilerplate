@@ -4,4 +4,9 @@ img[alt="dropdown-example"] {
 
 .sm-text {
     font-size: 0.64rem;
+    font-weight: bold;
+}
+
+tr td:first-child {
+    white-space: nowrap;
 }
