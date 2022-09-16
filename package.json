@@ -40,8 +40,8 @@
         "@contentstack/app-sdk": "^1.0.0",
         "@contentstack/venus-components": "^1.0.3",
         "@emotion/core": "^10.0.22",
-        "react": "^16.11.0",
-        "react-dom": "^16.13.1"
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
     },
     "keywords": [
         "rte",
