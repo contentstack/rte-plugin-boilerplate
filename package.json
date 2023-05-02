@@ -36,7 +36,7 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@contentstack/app-sdk": "^1.0.0",
+        "@contentstack/app-sdk": "^1.4.1",
         "@contentstack/venus-components": "^1.0.3",
         "@emotion/core": "^10.0.22",
         "react": "^16.11.0",
