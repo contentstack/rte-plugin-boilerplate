@@ -62,8 +62,8 @@ For example,
 
 ```json
 { 
-  text: "I am Bold", 
-  bold: true 
+  "text": "I am Bold", 
+  "bold": true 
 } 
 ```
 
