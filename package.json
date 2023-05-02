@@ -29,7 +29,7 @@
         "tslint": "^5.11.0",
         "tslint-config-prettier": "^1.15.0",
         "tslint-config-standard": "^8.0.1",
-        "typescript": "^3.0.3",
+        "typescript": "^5.0.4",
         "webpack": "^5.65.0",
         "webpack-cli": "^4.9.1",
         "webpack-dev-server": "^4.7.3",
@@ -37,7 +37,7 @@
     },
     "dependencies": {
         "@contentstack/app-sdk": "^1.4.1",
-        "@contentstack/venus-components": "^1.0.3",
+        "@contentstack/venus-components": "^1.0.6",
         "@emotion/core": "^10.0.22",
         "react": "^16.11.0",
         "react-dom": "^16.13.1"
