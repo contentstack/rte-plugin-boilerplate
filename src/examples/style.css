@@ -1,0 +1,19 @@
+.info {
+    background: rgb(222, 235, 255);
+    padding: 8px;
+    border-radius: 3px;
+    display: flex;
+}
+
+.p-x-6 {
+    padding: 0 6px;
+}
+
+.p-t-1 {
+    padding-top: 1px;
+}
+
+.info__content {
+    flex: 1;
+    margin-left: 10px;
+}
