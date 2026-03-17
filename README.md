@@ -4,6 +4,14 @@ The JSON Rich Text Editor Plugins let you add/create customized plugins to exten
 
 This boilerplate repository provides a template to customize your own JSON RTE plugins.
 
+## React compatibility
+
+This boilerplate is compatible with React 16, 17, 18, and 19.
+
+- `react` and `react-dom` are declared as peer dependencies.
+- The consuming host application must provide compatible versions of `react` and `react-dom`.
+- The plugin bundle keeps React external (not bundled), so it can run with the host's React runtime.
+
 ## Setting up the project
 
 1. Clone Boilerplate GitHub Repository

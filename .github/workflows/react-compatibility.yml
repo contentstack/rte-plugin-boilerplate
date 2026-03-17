@@ -1,0 +1,47 @@
+name: React Compatibility Build
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+  push:
+    branches: [main, master]
+
+jobs:
+  build-react-matrix:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - react_version: "16.14.0"
+            react_types_version: "16.14.55"
+          - react_version: "17.0.2"
+            react_types_version: "17.0.89"
+          - react_version: "18.3.1"
+            react_types_version: "18.3.12"
+          - react_version: "19.2.0"
+            react_types_version: "19.2.2"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install base dependencies
+        run: npm ci
+
+      - name: Install React version under test
+        run: |
+          npm install --no-save \
+            react@${{ matrix.react_version }} \
+            react-dom@${{ matrix.react_version }} \
+            @types/react@${{ matrix.react_types_version }} \
+            @types/react-dom@${{ matrix.react_types_version }}
+
+      - name: Build plugin
+        run: npm run build
