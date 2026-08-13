@@ -12,7 +12,8 @@
     "scripts": {
         "build": "webpack --config webpack.prod.js",
         "start": "webpack serve --config webpack.dev.js",
-        "dev": "webpack --config webpack.dev.js"
+        "dev": "webpack --config webpack.dev.js",
+        "prepare": "husky"
     },
     "repository": {
         "type": "git",
@@ -22,6 +23,7 @@
         "@types/node": "^10.17.5",
         "@types/react": "^16.9.11",
         "css-loader": "^6.5.1",
+        "husky": "^9.1.7",
         "source-map-loader": "^0.2.4",
         "style-loader": "^1.2.1",
         "ts-loader": "^9.2.6",
