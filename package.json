@@ -39,7 +39,7 @@
     },
     "dependencies": {
         "@contentstack/app-sdk": "^1.4.1",
-        "@contentstack/venus-components": "^3.0.5",
+        "@contentstack/venus-components": "^3.0.6",
         "@emotion/react": "^11.11.0",
         "@emotion/styled": "^11.11.0",
         "react": "^16.11.0",
@@ -53,15 +53,9 @@
     "author": "Contentstack",
     "license": "MIT",
     "overrides": {
+        "dompurify": "3.4.17",
+        "follow-redirects": "1.16.1",
         "@babel/runtime": "^7.26.10",
-        "@contentstack/venus-components": {
-            "axios": "1.18.1",
-            "form-data": "4.0.6",
-            "brace-expansion": "5.0.9",
-            "js-cookie": "3.0.7"
-        },
-        "dompurify": "3.4.13",
-        "follow-redirects": "1.16.0",
         "lodash": "4.18.1",
         "lodash-es": "4.18.1",
         "node-forge": "1.4.0",
